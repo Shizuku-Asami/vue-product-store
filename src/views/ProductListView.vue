@@ -1,19 +1,19 @@
 <template>
-  <ProductComponent
-    v-for="product in products"
-    v-bind:key="product.id"
-    v-bind:product="product"
-  />
+  <div>
+    <ProductComponent
+      v-for="product in products || []"
+      v-bind:key="product.id"
+      v-bind:product="product"
+    />
+  </div>
 </template>
 
 <script lang="ts">
 import { Product } from "@/models/product";
-import axios from "axios";
 import ProductComponent from "@/components/ProductComponent.vue";
-const API_URL = "products/";
+import { ProductService } from "@/services/product.service";
 let products: Product | null = null;
 export default {
-  name: "ProductListView",
   data() {
     return {
       products: products,
@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     listProducts(): void {
-      axios.get(process.env.VUE_APP_BASE_URL + API_URL).then((response) => {
+      ProductService.listProducts().then((response) => {
         console.log(response);
         this.products = response.data;
       });
