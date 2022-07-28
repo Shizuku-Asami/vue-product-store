@@ -3,10 +3,15 @@
     class="max-w-lg shadow-sm bg-gray-100 border rounded-lg p-2 m-2"
     v:if="getProduct"
   >
-    <div class="flex flex-row">
+    <div class="flex flex-row justify-between">
       <router-link :to="{ name: 'product', params: { id: getProduct.id } }">
         <h3 class="text-xl text-blue-500">{{ getProduct.name }}</h3>
       </router-link>
+      <router-link
+        class="text-green-500 hover:text-green-300"
+        :to="{ name: 'product-update', params: { id: getProduct.id } }"
+        >Update</router-link
+      >
     </div>
     <p class="text-gray-700">{{ getProduct.description }}</p>
     <div class="flex flex-row justify-between items-center my-2 p-2">

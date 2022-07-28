@@ -80,6 +80,16 @@ export default {
       price: "0",
     };
   },
+  created() {
+    if (this.$route.params.id) {
+      ProductService.retrieveProduct(this.$route.params.id).then((response) => {
+        this.name = response.data.name;
+        this.description = response.data.description;
+        this.quantity = response.data.quantity;
+        this.price = response.data.price;
+      });
+    }
+  },
   methods: {
     onSubmit(e: Event) {
       e.preventDefault();
@@ -93,7 +103,7 @@ export default {
         this.createProduct(product);
       }
       if (this.action == "update") {
-        this.updateProduct(product);
+        this.updateProduct(this.$route.params.id, product);
       }
     },
     createProduct(product: Product): void {
