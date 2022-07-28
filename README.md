@@ -1,4 +1,5 @@
 # vue-product-store
+<<<<<<< HEAD
 A simple front-end using Vue for drf-product-store repository.
 ## Installation
 clone the repository:
@@ -23,3 +24,28 @@ and finally run
 npm run serve
 ```
 to serve the application.
+=======
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+>>>>>>> 1041ac6 (init)
